@@ -5,11 +5,5 @@ from src.models import FileUpload
 class FileUploadSerializer(serializers.ModelSerializer):
     class Meta:
         model = FileUpload
-        fields = [
-            "id",
-            "submission",
-            "field",
-            "file",
-            "uploaded_at",
-        ]
+        fields = "__all__"
         read_only_fields = ["id", "uploaded_at"]
