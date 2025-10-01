@@ -1,7 +1,7 @@
 from django.db import models
 from django.forms import ValidationError
 from .submission import Submission
-from .field import Field
+from .field import FormField
 from os import path as os_path
 
 
@@ -9,7 +9,7 @@ class FileUpload(models.Model):
     submission = models.ForeignKey(
         Submission, related_name="files", on_delete=models.CASCADE
     )
-    field = models.ForeignKey(Field, on_delete=models.SET_NULL, null=True, blank=True)
+    field = models.ForeignKey(FormField, on_delete=models.SET_NULL, null=True, blank=True)
 
     def upload_to(instance, filename):
         form_name = (

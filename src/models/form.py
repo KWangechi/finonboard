@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
-from models import Field
 from django.utils.text import slugify
+from src.models.field import FormField
 
 
 class Form(models.Model):
@@ -23,7 +23,7 @@ class Form(models.Model):
         blank=True,
     )
     
-    form_fields = models.ManyToManyField(Field, related_name='forms')
+    form_fields = models.ManyToManyField(FormField, related_name='forms')
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

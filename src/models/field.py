@@ -1,8 +1,8 @@
 from django.db import models
-from .form import Form
+# from .form import Form
 
 
-class Field(models.Model):
+class FormField(models.Model):
     FIELD_TYPES = [
         ("text", "Text"),
         ("number", "Number"),
@@ -12,7 +12,7 @@ class Field(models.Model):
         ("file", "File Upload"),
     ]
 
-    form = models.ForeignKey(Form, related_name="fields", on_delete=models.CASCADE)
+    # form = models.ForeignKey(Form, related_name="fields", on_delete=models.CASCADE)
     label = models.CharField(max_length=255)
     type = models.CharField(max_length=20, choices=FIELD_TYPES)
     required = models.BooleanField(default=False)

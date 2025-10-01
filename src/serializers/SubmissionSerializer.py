@@ -10,3 +10,4 @@ class SubmissionSerializer(serializers.ModelSerializer):
         extra_kwargs = {
             "data": {"required": True},
         }
+        

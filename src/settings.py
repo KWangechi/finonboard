@@ -13,8 +13,11 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 import environ
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+env = environ.Env()
 BASE_DIR = Path(__file__).resolve().parent.parent
+environ.Env.read_env(str(BASE_DIR / ".env"))
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
 
 
 # Quick-start development settings - unsuitable for production
@@ -28,9 +31,6 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = env("DEBUG", default=False)         
 
 ALLOWED_HOSTS = []
-
-env = environ.Env()
-environ.Env.read_env(str(BASE_DIR / ".env"))
 
 # Application definition
 
